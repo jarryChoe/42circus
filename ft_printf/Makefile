@@ -1,46 +1,31 @@
-Name = ft_printf.a
+NAME = libftprintf.a
+CC = cc -Wall -Wextra -Werror
+INCLUDE_DIR = ./
+SRCS = ft_printf.c handling_data.c checking_format.c \
+	   form_c.c form_s.c form_p.c form_d_i.c form_u.c form_x_X.c
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar
-ARFLAGS = rsc
-RM = rm -f
+OBJS = $(SRCS:.c=.o)
 
-SRCS = \
-	   ft_printf.c \
-	   ft_printf2.c
+all : $(NAME)
 
-SRCS_B = \
-		 ft_bonus.c
+$(NAME) : $(OBJS)
+	make -C libft
+	cp libft/libft.a ./$(NAME)
+	ar -crs $@ $^
+	#ranlib libftprintf.a
 
-OBJS = $(SRCS:.c =.o)
-OBJS_B = $(SRCS_B:.c=.o)
+.c.o : $(SRCS)
+	$(CC) -I$(INCLUDE_DIR) -c -o $@ $<
 
-ifdef IS_BONUS
-	OBJECTS = $(OBJS) $(OBJS_B)
-else
-	OBJECTS = $(OBJS)
-endif
+clean :
+	make clean -C libft
+	rm -f $(OBJS)
 
-all: $(NAME)
+fclean : clean
+	rm -f libft/libft.a
+	rm -f $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I. -c $<
+re : fclean
+	make all
 
-$(NAME): $(OBJECTS)
-	$(AR) $(ARFLAGS) $(NAME) $^
-
-bonus:
-	make IS_BONUS=1 all
-
-clean:
-	$(RM) $(OBJS) $(OBJS_B)
-
-fclean: clean
-	$(RM) $(NAME)
-
-re:
-	$(MAKE) fclean
-	$(MAKE) all
-
-.PHONY: all clean fclean re
+.PHONY : all clean fclean re
