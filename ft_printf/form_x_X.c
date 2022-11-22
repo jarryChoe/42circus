@@ -6,7 +6,7 @@
 /*   By: jachoe <jachoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 18:31:15 by jachoe            #+#    #+#             */
-/*   Updated: 2022/11/08 18:32:02 by jachoe           ###   ########.fr       */
+/*   Updated: 2022/11/09 15:35:23 by jachoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char	*ft_itoa_hex(unsigned int n)
 	char	*ret;
 	char	*hex;
 
-	hex = "0123456789abcedf";
+	hex = "0123456789abcdef";
 	len = ft_len(n);
 	ret = (char *)malloc(sizeof(char) * len + 1);
 	if (!ret)

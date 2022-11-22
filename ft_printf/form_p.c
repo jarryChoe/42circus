@@ -6,7 +6,7 @@
 /*   By: jachoe <jachoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 18:31:08 by jachoe            #+#    #+#             */
-/*   Updated: 2022/11/08 18:34:34 by jachoe           ###   ########.fr       */
+/*   Updated: 2022/11/22 15:00:01 by jachoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	form_p(void *addr)
 	unsigned long long	mem;
 	char				*ret;
 
-	mem = (unsigned long)addr;
+	mem = (unsigned long long)addr;
 	ret = ft_itoa_hex(mem);
 	if (!ret)
 		return (ERR);

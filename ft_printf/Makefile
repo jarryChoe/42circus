@@ -6,7 +6,7 @@
 #    By: jachoe <jachoe@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 18:31:39 by jachoe            #+#    #+#              #
-#    Updated: 2022/11/08 18:32:07 by jachoe           ###   ########.fr        #
+#    Updated: 2022/11/22 13:42:39 by jachoe           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ $(NAME) : $(OBJS)
 	#ranlib libftprintf.a
 
 .c.o : $(SRCS)
-	$(CC) -I$(INCLUDE_DIR) -c -o $@ $<
+	$(CC) -I$(INCLUDE_DIR) -c $< -o $@
 
 clean :
 	make clean -C libft
