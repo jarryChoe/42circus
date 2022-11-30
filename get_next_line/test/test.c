@@ -4,11 +4,11 @@
 
 int main(void)
 {
-	/*
+
 	int fd1;
 	int fd2;
 
-	fd1 = open("test.txt", O_RDONLY);
+	fd1 = open("text.txt", O_RDONLY);
 	if (fd1 == -1)
 		return (1);
 	printf("fd1 : %d\n", fd1);
@@ -19,7 +19,8 @@ int main(void)
 	close(fd1);
 	close(fd2);
 	return (0);
-	*/
+
+	/*
 	int fd;
 	char buf[100];
 
@@ -33,4 +34,5 @@ int main(void)
 		close(fd);
 	}
 	return (0);
+	*/
 }
